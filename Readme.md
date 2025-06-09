@@ -22,8 +22,8 @@ Este projeto é uma API desenvolvida em Python com Flask, que permite o gerencia
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seuusuario/back-end-gerenciador-alunos.git
-cd back-end-gerenciador-alunos
+git clone https://github.com/jaugustoguerra/MvP-Puc-Rio.git
+cd MvP-Puc-Rio/back-end
 ```
 
 ### 2. Crie e ative um ambiente virtual (opcional)
@@ -71,4 +71,4 @@ servers:
 
 * Todas as requisições devem ser feitas para `http://localhost:5000`
 * Use o front-end (SPA) para interagir com esta API através de um navegador.
-* O projeto front-end está disponível em: [https://github.com/seuusuario/front-end-gerenciador-alunos](https://github.com/seuusuario/front-end-gerenciador-alunos)
+* O projeto front-end está disponível em: [https://github.com/jaugustoguerra/MvP-Puc-Rio](https://github.com/jaugustoguerra/MvP-Puc-Rio)
