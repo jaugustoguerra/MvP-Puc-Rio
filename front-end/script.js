@@ -26,7 +26,7 @@ async function carregarAlunos() {
       <strong>ID: ${a.id}</strong><br>
       <strong>${a.nome}</strong><br>
       Email: ${a.email}<br>
-      Nascimento: ${formatarData(a.data_nascimento)}<br>
+      Nascimento: ${(a.data_nascimento)}<br>
       <button onclick="deletarAluno(${a.id})">Excluir</button>
     </div>
   `).join("");
@@ -61,10 +61,4 @@ async function buscarAlunoPorId() {
       Nascimento: ${aluno.data_nascimento}
     </div>
   `;
-}
-
-function formatarData(dataISO) {
-  if (!dataISO) return "";
-  const [ano, mes, dia] = dataISO.split("-");
-  return `${dia}/${mes}/${ano}`;
 }
