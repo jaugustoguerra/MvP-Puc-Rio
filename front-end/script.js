@@ -4,7 +4,7 @@ const divAlunos = document.getElementById("alunos");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const aluno = {
-    id: form.id.value ? parseInt(form.id.value) : undefined,
+    id: form.id.valueOf ? parseInt(form.id.valueOf) : undefined,
     nome: form.nome.value,
     email: form.email.value,
     data_nascimento: form.data_nascimento.value,
@@ -26,7 +26,7 @@ async function carregarAlunos() {
       <strong>ID: ${a.id}</strong><br>
       <strong>${a.nome}</strong><br>
       Email: ${a.email}<br>
-      Nascimento: ${a.data_nascimento}<br>
+      Nascimento: ${formatarData(a.data_nascimento)}<br>
       <button onclick="deletarAluno(${a.id})">Excluir</button>
     </div>
   `).join("");
@@ -61,4 +61,10 @@ async function buscarAlunoPorId() {
       Nascimento: ${aluno.data_nascimento}
     </div>
   `;
+}
+
+function formatarData(dataISO) {
+  if (!dataISO) return "";
+  const [ano, mes, dia] = dataISO.split("-");
+  return `${dia}/${mes}/${ano}`;
 }
