@@ -65,6 +65,12 @@ servers:
 ├── database.db
 ├── requirements.txt
 └── swagger.yaml
+
+/front-end
+├── index.html
+├── style.css
+├── script.js 
+
 ```
 
 ## 📌 Observações
