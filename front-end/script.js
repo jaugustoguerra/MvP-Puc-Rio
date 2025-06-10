@@ -4,11 +4,11 @@ const divAlunos = document.getElementById("alunos");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const aluno = {
-    id: form.id.valueOf ? parseInt(form.id.valueOf) : undefined,
-    nome: form.nome.value,
-    email: form.email.value,
-    data_nascimento: form.data_nascimento.value,
-  };
+  nome: form.nome.value,
+  email: form.email.value,
+  data_nascimento: form.data_nascimento.value,
+  cpf: form.cpf.value
+};
   await fetch("http://localhost:5000/cadastrar_aluno", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -27,7 +27,9 @@ async function carregarAlunos() {
       <strong>${a.nome}</strong><br>
       Email: ${a.email}<br>
       Nascimento: ${(a.data_nascimento)}<br>
+      CPF: ${a.cpf}<br>
       <button onclick="deletarAluno(${a.id})">Excluir</button>
+      
     </div>
   `).join("");
 }
@@ -41,11 +43,11 @@ async function deletarAluno(id) {
 
 window.onload = carregarAlunos;
 
-async function buscarAlunoPorId() {
-  const id = document.getElementById("buscarId").value;
-  if (!id) return alert("Informe um ID válido");
+async function buscarAlunoPorCpf() {
+  const cpf = document.getElementById("buscarCpf").value;
+  if (!cpf) return alert("Informe um CPF");
 
-  const res = await fetch(`http://localhost:5000/buscar_aluno/${id}`);
+  const res = await fetch(`http://localhost:5000/buscar_aluno/${cpf}`);
   const resultadoDiv = document.getElementById("resultadoBusca");
 
   if (res.status === 404) {
@@ -57,8 +59,15 @@ async function buscarAlunoPorId() {
   resultadoDiv.innerHTML = `
     <div class="card">
       <strong>${aluno.nome}</strong><br>
+      CPF: ${aluno.cpf}<br>
       Email: ${aluno.email}<br>
-      Nascimento: ${aluno.data_nascimento}
+      Nascimento: ${formatarData(aluno.data_nascimento)}
     </div>
   `;
+}
+
+function formatarData(dataISO) {
+  if (!dataISO) return "";
+  const [dia, mes, ano] = dataISO.split("/");
+  return `${dia}/${mes}/${ano}`;
 }
