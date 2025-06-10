@@ -71,7 +71,7 @@ button:hover {
   background-color: #fafafa;
   border-left: 4px solid #3498db;
   padding: 12px;
-  text-align: left;
+  text-align: center;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   position: relative;
@@ -95,4 +95,8 @@ button:hover {
 
 .buscar-form input {
   width: 150px;
+}
+
+.centralizado {
+  text-align: center;
 }
