@@ -81,14 +81,14 @@ async function buscarAlunoPorCpf() {
       CPF: ${aluno.cpf}<br>
       Email: ${aluno.email}<br>
       Nascimento: ${formatarData(aluno.data_nascimento)}<br>
-      <button onclick="deletarAluno(${aluno.id})"><i class="fas fa-trash-alt"></i> Excluir Aluno</button>
+      <button onclick="deletarAluno('${aluno.cpf}')"><i class="fas fa-trash-alt"></i> Excluir Aluno</button>
     </div>
   `;
 }
 
-async function deletarAluno(id) {
+async function deletarAluno(cpf) {
   try {
-    const response = await fetch(`http://localhost:5000/deletar_aluno/${id}`, {
+    const response = await fetch(`http://localhost:5000/deletar_aluno/${cpf}`, {
       method: "DELETE"
     });
     

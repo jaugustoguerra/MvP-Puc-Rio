@@ -76,11 +76,11 @@ def buscar_aluno_por_cpf(cpf):
     return jsonify({"erro": "Aluno não encontrado"}), 404
 
 
-@app.route('/deletar_aluno/<int:id>', methods=['DELETE'])
-def deletar_aluno(id):
+@app.route('/deletar_aluno/<cpf>', methods=['DELETE'])
+def deletar_aluno(cpf):
     con = sqlite3.connect(DB)
     cur = con.cursor()
-    cur.execute("DELETE FROM alunos WHERE id = ?", (id,))
+    cur.execute("DELETE FROM alunos WHERE cpf = ?", (cpf,))
     con.commit()
     con.close()
     return jsonify({"mensagem": "Aluno excluído com sucesso"})
