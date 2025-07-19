@@ -27,7 +27,7 @@ form.addEventListener("submit", async (e) => {
       cpf: form.cpf.value
     };
     
-    const response = await fetch("http://localhost:5000/cadastrar_aluno", {
+    const response = await fetch("/api/cadastrar_aluno", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(aluno),
@@ -49,7 +49,7 @@ form.addEventListener("submit", async (e) => {
 });
 
 async function carregarAlunos() {
-  const res = await fetch("http://localhost:5000/buscar_alunos");
+  const res = await fetch("/api/buscar_alunos");
   const alunos = await res.json();
   divAlunos.innerHTML = alunos.map(a => `
     <div class="card">
@@ -66,7 +66,7 @@ async function buscarAlunoPorCpf() {
   const cpf = document.getElementById("buscarCpf").value;
   if (!cpf) return alert("Informe um CPF");
 
-  const res = await fetch(`http://localhost:5000/buscar_aluno/${cpf}`);
+  const res = await fetch(`/api/buscar_aluno/${cpf}`);
   const resultadoDiv = document.getElementById("resultadoBusca");
 
   if (res.status === 404) {
@@ -88,7 +88,7 @@ async function buscarAlunoPorCpf() {
 
 async function deletarAluno(cpf) {
   try {
-    const response = await fetch(`http://localhost:5000/deletar_aluno/${cpf}`, {
+    const response = await fetch(`/api/deletar_aluno/${cpf}`, {
       method: "DELETE"
     });
     

@@ -16,6 +16,31 @@ Este projeto é uma API desenvolvida em Python com Flask, que permite o gerencia
 * Flask-CORS
 * SQLite
 * Swagger (OpenAPI)
+* Docker & Docker Compose
+* Nginx
+
+## 🐳 Executando com Docker (Recomendado)
+A maneira mais simples de executar o projeto é utilizando Docker, que irá gerenciar tanto o back-end quanto o front-end.
+
+## 1. Pré-requisitos
+Docker
+
+Docker Compose
+
+## 2. Execução
+Clone o repositório e, na pasta raiz do projeto, execute o seguinte comando:
+
+Bash
+
+docker-compose up --build
+Isso irá construir as imagens e iniciar os contêineres.
+
+## 3. Acesso
+Front-end: Acesse `http://localhost:8080` no seu navegador.
+
+API (Back-end): A API estará disponível em `http://localhost:5000`.
+
+Para parar todos os serviços, pressione Ctrl + C no terminal ou execute docker-compose down.
 
 ## 🧑‍💻 Instalação
 
