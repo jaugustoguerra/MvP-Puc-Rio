@@ -77,4 +77,4 @@ servers:
 
 * Todas as requisições devem ser feitas para `http://localhost:5000`
 * Use o front-end (SPA) para interagir com esta API através de um navegador.
-* O projeto front-end está disponível em: [https://github.com/jaugustoguerra/MvP-Puc-Rio](https://github.com/jaugustoguerra/MvP-Puc-Rio)
+* O projeto está disponível em: [https://github.com/jaugustoguerra/MvP-Puc-Rio](https://github.com/jaugustoguerra/MvP-Puc-Rio)
